@@ -1,0 +1,7 @@
+.center{
+    text-align: center;
+    padding: 50px;
+}
+.Header, footer{
+    display: block;
+}

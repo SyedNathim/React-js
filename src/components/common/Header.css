@@ -1,0 +1,31 @@
+.navbar{
+    background: black;
+    display: flex;
+
+}
+.nav-links{
+    padding: 15px;
+    display: flex;
+
+}
+.nav-links li{
+padding-right: 15px;
+list-style-type: none;
+display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+.nav-links li a {
+    line-height: 50px;
+    padding: 0 15px;
+    color: #ffffff;
+    font-family: "Oswald",sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.navbar h3{
+    padding: 15px;
+    color: #fff;
+    font-size: 25px;
+}
