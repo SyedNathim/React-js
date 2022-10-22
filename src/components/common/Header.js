@@ -4,9 +4,9 @@ import './Header.css';
 
 import './Footer.css';
 // let sampleJSON = localStorage.getItem("login-info");
-// const username = JSON.parse(localStorage.getItem('login-info'));
+const username = JSON.parse(localStorage.getItem('login-info'));
 let userName = "Logo";
-// let userName = username.customer.name;
+
 // console.log(username.msg);
 
 const Header = () => {
@@ -16,7 +16,7 @@ const Header = () => {
         <section className="Header">
 
         <nav className="navbar">
-            <h3 className="logo">{userName}</h3>
+            <h3 className="logo">{username ? (username.customer.name): ({userName})}</h3>
             <ul className="nav-links">
             
                     <li><Link to='/home'>Home</Link></li>

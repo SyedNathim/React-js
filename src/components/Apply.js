@@ -20,16 +20,21 @@ const [Posts, setPosts] = useState(null);
 });
     }, [])
 
-    function deleteBanner(banner_id){
+    async function deleteBanner(banner_id){
       // alert(banner_id);
-      fetch(`http://localhost/old-app/sankranthi/Api_controller/delete_banner/${banner_id}`,{
-        method:'DELETE'
-      }).then((result)=>{
-        result.json().then((resp)=>{
-          console.warn(resp)
-        })
+      let result= await  fetch('http://127.0.0.1/old-app/sankranthi/Api_controller/delete_banner/'+ banner_id,{
+        method:'DELETE',
+        headers:{
+          "Content-type":'application/json',
+          "Accept":'application/json'
+        }
       })
+      result =await result.json()
+      console.warn("result",result)
+    //   localStorage.setItem('banner-info', JSON.stringify(result));
+    //  history.push("/apply")
     }
+    
   return (
     <section>
        <Header />
@@ -51,7 +56,7 @@ const [Posts, setPosts] = useState(null);
             Posts.map(post => {
                     return (<tr><td>{post.banner_id}</td>
                                 <td>{post.banner_name}</td>
-                                {/* <td><img src={"http://localhost/old-app/sankranthi/"+ post.banner_image } /></td> */}
+                                <td><img src={"http://localhost/old-app/sankranthi/"+ post.banner_image } alt="logo" /></td>
                                 <td><button onClick={()=>deleteBanner(post.banner_id)}>Delete</button></td>
                             </tr>)
             })

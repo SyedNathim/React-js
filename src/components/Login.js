@@ -11,7 +11,7 @@ const Login = () => {
 
    useEffect(() => {
   //  if (localStorage.getItem('login-info')) {
-  //   // history.push("/apply")
+    // history.push("/apply")
   //  }
    },  [])
 
@@ -36,8 +36,11 @@ async function UserLogin() {
 // console.log(action);
   if (loginRes === true) {
     localStorage.setItem('login-info', JSON.stringify(result));
+  
      history.push("/home")
+     window.location.reload(false);
     // alert('Correct');
+    
 
   }else{
 alert('Try Again');
@@ -50,7 +53,7 @@ alert('Try Again');
         <div className="Auth-form-container">
       <div className="Auth-form">
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
+          <h3 className="Auth-form-title">Sign In Local</h3>
           <div className="form-group mt-3">
             <label>Mobile No</label>
             <input
