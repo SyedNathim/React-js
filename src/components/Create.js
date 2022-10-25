@@ -24,6 +24,7 @@ function Create() {
 async function Createbanner() {
   let item = {banner_name,banner_image,status}
   console.warn(item)
+  
 
   let result= await fetch("http://localhost/old-app/sankranthi/Api_controller/add_banner",{
          method:"Post",

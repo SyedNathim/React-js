@@ -10,6 +10,8 @@ import Apply from "./components/Apply";
 import Create from "./components/Create";
 import SignUp from "./components/SignUp";
 
+import Edit from "./components/Edit";
+
 import './App.css';
 const App = () => {
     return(
@@ -25,6 +27,7 @@ const App = () => {
                           <Route path="/apply" components  ={Apply} exact ><Apply /></Route>
                           <Route path="/create" components  ={Create} exact ><Create /></Route>
                           <Route path="/signup" components  ={SignUp} exact ><SignUp /></Route>
+                          <Route path="/edit/:id" components  ={Edit} exact ><Edit /></Route>
         
                     </Switch>
 

@@ -10,6 +10,28 @@ import { Header, Footer } from "./common/Header";
 
 function Apply() {
   
+  async function deleteBanner(banner_id){
+    let item = {'banner_id': banner_id}
+    // console.warn(item);
+    // alert(item);
+    let result= await fetch("http://127.0.0.1/old-app/sankranthi/Api_controller/banner_de",
+    {
+      method:"Post",
+      body:JSON.stringify(item),
+      headers:{
+       "Content-type":'application/json',
+       "Accept":'application/json'
+      }
+    })
+    result =await result.json()
+    console.warn("result",result)
+  //   localStorage.setItem('banner-info', JSON.stringify(result));
+  //  history.push("/apply")
+  window.location.reload(false);
+  }
+  
+
+
 const [Posts, setPosts] = useState(null);
 
     useEffect(() => { 
@@ -20,20 +42,7 @@ const [Posts, setPosts] = useState(null);
 });
     }, [])
 
-    async function deleteBanner(banner_id){
-      // alert(banner_id);
-      let result= await  fetch('http://127.0.0.1/old-app/sankranthi/Api_controller/delete_banner/'+ banner_id,{
-        method:'DELETE',
-        headers:{
-          "Content-type":'application/json',
-          "Accept":'application/json'
-        }
-      })
-      result =await result.json()
-      console.warn("result",result)
-    //   localStorage.setItem('banner-info', JSON.stringify(result));
-    //  history.push("/apply")
-    }
+
     
   return (
     <section>
@@ -56,8 +65,9 @@ const [Posts, setPosts] = useState(null);
             Posts.map(post => {
                     return (<tr><td>{post.banner_id}</td>
                                 <td>{post.banner_name}</td>
-                                <td><img src={"http://localhost/old-app/sankranthi/"+ post.banner_image } alt="logo" /></td>
-                                <td><button onClick={()=>deleteBanner(post.banner_id)}>Delete</button></td>
+                                <td><img src={"http://localhost/old-app/sankranthi/"+ post.banner_image} alt="logo" /></td>
+                                <td><button ><Link to={'Edit/'+post.banner_id}>Edit</Link> </button>
+                              <button onClick={()=>deleteBanner(post.banner_id)}>Delete</button></td>
                             </tr>)
             })
 
